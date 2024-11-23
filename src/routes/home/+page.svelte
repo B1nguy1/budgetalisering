@@ -47,7 +47,7 @@
 <!-- Initial page -->
 {#if $isLoggedIn == true}
   <Header>
-    <Button on:click{navigateToStartPage} text={"Logg ut"} />
+    <Button on:click={navigateToStartPage} text={"Logg ut"} />
   </Header>
   <div class="wrapper">
     {#if currentUser}
