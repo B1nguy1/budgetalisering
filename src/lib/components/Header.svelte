@@ -1,10 +1,14 @@
 <script lang="ts">
+  import Button from "./Button.svelte";
   import Link from "./Link.svelte";
 
   let routes = [
     { link: "/home", page: "Hjem" },
-    { link: "/statistikk", page: "Statistikk" },
+    { link: "/stats", page: "Statistikk" },
   ];
+
+  export let onClick: () => void;
+  export let text: string;
 </script>
 
 <nav>
@@ -21,7 +25,7 @@
     </ul>
   </div>
   <div class="slot-container">
-    <slot />
+    <Button on:click={onClick} {text} />
   </div>
 </nav>
 

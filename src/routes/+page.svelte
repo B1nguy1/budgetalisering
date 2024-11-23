@@ -24,7 +24,7 @@
         isLoggedIn.set(false);
       }
     } catch (error) {
-      console.error(error);
+      alert(error);
     }
   };
 
@@ -38,11 +38,12 @@
       if (userCredential) {
         goto("/home", { replaceState: true });
         isLoggedIn.set(true);
+        sessionStorage.setItem("userID", JSON.stringify(auth.currentUser?.uid));
       } else {
         isLoggedIn.set(false);
       }
     } catch (error) {
-      console.error(error);
+      alert(error);
     }
   };
 </script>
