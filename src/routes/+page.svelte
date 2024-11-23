@@ -4,7 +4,7 @@
     signInWithEmailAndPassword,
   } from "firebase/auth";
   import { goto } from "$app/navigation";
-  import { isLoggedIn, user } from "../stores/userStore";
+  import { isLoggedIn } from "../stores/userStore";
   import { auth } from "../client";
 
   let name: string = "";
