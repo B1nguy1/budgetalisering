@@ -19,7 +19,6 @@ export const auth = getAuth(app);
 onAuthStateChanged(auth, (firebaseUser) => {
   if (firebaseUser) {
     user.set(firebaseUser);
-    // ...
   } else {
     user.set(null);
   }

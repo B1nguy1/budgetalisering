@@ -1,30 +1,15 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { getAuth, signOut } from "firebase/auth";
-  import { isLoggedIn } from "../../stores/userStore";
   import Button from "./Button.svelte";
   import Link from "./Link.svelte";
-  import { auth } from "../../client";
 
   let routes = [
     { link: "/home", page: "Hjem" },
     { link: "/statistikk", page: "Statistikk" },
   ];
-
-  const navigateToStartPage = () => {
-    signOut(auth)
-      .then(() => {
-        goto("/", { replaceState: true });
-        isLoggedIn.set(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 </script>
 
 <nav>
-  <span class="title"> Budsjettalisering </span>
+  <span class="title"> Budgettalisering </span>
   <div class="container">
     <ul>
       {#each routes as route}
@@ -35,7 +20,9 @@
         </li>
       {/each}
     </ul>
-    <Button on:click={navigateToStartPage} text={"Logg ut"} />
+  </div>
+  <div class="slot-container">
+    <slot />
   </div>
 </nav>
 
@@ -64,5 +51,8 @@
     margin-left: auto;
     align-items: center;
     gap: 1rem;
+  }
+  .slot-container {
+    margin-left: 1rem;
   }
 </style>

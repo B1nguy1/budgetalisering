@@ -48,7 +48,7 @@
 </script>
 
 <div class="wrapper">
-  <h1>Budsjettalisering</h1>
+  <h1>Budgettalisering</h1>
 
   <div class="inputClass">
     <form>

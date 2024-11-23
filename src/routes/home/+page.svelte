@@ -5,8 +5,10 @@
   import { onMount } from "svelte";
   import { isLoggedIn, user } from "../../stores/userStore";
   import { capitalize, getEmailName } from "../../utils/helperFunctions";
-  import type { User } from "firebase/auth";
+  import { signOut, type User } from "firebase/auth";
   import Header from "$lib/components/Header.svelte";
+  import { auth } from "../../client";
+  import { goto } from "$app/navigation";
 
   let location = "";
   let date = "";
@@ -14,7 +16,6 @@
   let currentUser: User | null = null;
 
   const unSubscribe = user.subscribe((value) => {
-    //updates the user
     currentUser = value;
   });
 
@@ -30,11 +31,24 @@
       unSubscribe();
     };
   });
+
+  const navigateToStartPage = () => {
+    signOut(auth)
+      .then(() => {
+        goto("/", { replaceState: true });
+        isLoggedIn.set(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 </script>
 
 <!-- Initial page -->
 {#if $isLoggedIn == true}
-  <Header />
+  <Header>
+    <Button on:click{navigateToStartPage} text={"Logg ut"} />
+  </Header>
   <div class="wrapper">
     {#if currentUser}
       <h1>
