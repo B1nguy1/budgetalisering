@@ -4,6 +4,7 @@
 
   let routes = [
     { link: "/home", page: "Hjem" },
+    { link: "/track", page: "Loggfør" },
     { link: "/stats", page: "Statistikk" },
   ];
 

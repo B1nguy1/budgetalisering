@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
+  import { collection, onSnapshot, query } from "firebase/firestore";
   import { onMount } from "svelte";
   import { db } from "../../client";
   import ResultCard from "$lib/components/ResultCard.svelte";
@@ -31,9 +31,21 @@
 </script>
 
 {#each transactions as transaction}
-  <ResultCard
-    location={transaction.location}
-    date={transaction.date}
-    amount={transaction.amount}
-  />
+  <div class="container">
+    <ResultCard
+      location={transaction.location}
+      date={transaction.date}
+      amount={transaction.amount}
+    />
+  </div>
 {/each}
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+  }
+</style>

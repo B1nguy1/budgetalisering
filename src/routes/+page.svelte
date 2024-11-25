@@ -37,8 +37,10 @@
       );
       if (userCredential) {
         goto("/home", { replaceState: true });
-        isLoggedIn.set(true);
         sessionStorage.setItem("userID", JSON.stringify(auth.currentUser?.uid));
+        if (sessionStorage.getItem("userID") !== null) {
+          isLoggedIn.set(true);
+        }
       } else {
         isLoggedIn.set(false);
       }
