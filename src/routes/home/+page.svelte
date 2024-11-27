@@ -14,9 +14,9 @@
     where,
   } from "firebase/firestore";
 
-  let monthlyAmount: number;
-  let saveAmount: number;
-  let currentUser: User | null = null;
+  let monthlyAmount: number = $state(0);
+  let saveAmount: number = $state(0);
+  let currentUser: User | null = $state(null);
   let isSubmitted: boolean = false;
 
   const unSubscribe = user.subscribe((value) => {
@@ -82,7 +82,7 @@
       bind:value={saveAmount}
       type="number"
     />
-    <Button text="Submit" on:click={handleSubmit} />
+    <Button text="Submit" onClick={handleSubmit} />
   </div>
 {/if}
 

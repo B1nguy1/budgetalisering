@@ -10,7 +10,7 @@
     date: string;
   };
 
-  let transactions: Array<Transaction> = [];
+  let transactions: Array<Transaction> = $state([]);
   let loading = true;
 
   onMount(async () => {

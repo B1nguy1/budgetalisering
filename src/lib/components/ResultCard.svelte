@@ -1,17 +1,20 @@
 <script lang="ts">
-  export let date: string;
-  export let amount: number;
-  export let location: string;
+  interface Props {
+    date: string;
+    amount: number;
+    location: string;
+  }
+
+  let { date, amount, location }: Props = $props();
 </script>
 
 <div class="card">
-  <div class="header">Result Details</div>
+  <div class="header">{date}</div>
   <div class="detail">
-    <span>Date:</span>
-    {date}
   </div>
   <div class="detail">
-    <span>Amount:</span> ${amount.toFixed(2)}
+    <span>Amount:</span>
+    {amount.toFixed(2)} kr
   </div>
   <div class="detail">
     <span>Location:</span>
@@ -26,7 +29,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
     margin: 8px;
-    max-width: 300px;
+
     background-color: #fff;
     font-family: Arial, sans-serif;
   }

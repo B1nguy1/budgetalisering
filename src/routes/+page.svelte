@@ -7,8 +7,8 @@
   import { isLoggedIn } from "../stores/userStore";
   import { auth } from "../client";
 
-  let name: string = "";
-  let password: string = "";
+  let name: string = $state("");
+  let password: string = $state("");
 
   const signUp = async () => {
     try {
@@ -57,8 +57,8 @@
     <form>
       <input bind:value={name} type="email" placeholder="E-post" />
       <input bind:value={password} type="password" placeholder="passord" />
-      <button type="submit" on:click={signUp}>Registrer bruker</button>
-      <button type="submit" on:click={signIn}>Logg inn </button>
+      <button type="submit" onclick={signUp}>Registrer bruker</button>
+      <button type="submit" onclick={signIn}>Logg inn </button>
     </form>
   </div>
 </div>

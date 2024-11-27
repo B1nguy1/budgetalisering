@@ -1,8 +1,17 @@
 <script lang="ts">
-  export let placeholder: string = "";
-  export let value: string | number;
-  export let label: string;
-  export let type: "text" | "number" = "text";
+  interface Props {
+    placeholder?: string;
+    value: string | number;
+    label: string;
+    type?: "text" | "number";
+  }
+
+  let {
+    placeholder = "",
+    value = $bindable(),
+    label,
+    type = "text"
+  }: Props = $props();
 </script>
 
 <div class="input-group">

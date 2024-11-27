@@ -8,8 +8,12 @@
     { link: "/stats", page: "Statistikk" },
   ];
 
-  export let onClick: () => void;
-  export let text: string;
+  interface Props {
+    onClick: () => void;
+    text: string;
+  }
+
+  let { onClick, text }: Props = $props();
 </script>
 
 <nav>
@@ -26,7 +30,7 @@
     </ul>
   </div>
   <div class="slot-container">
-    <Button on:click={onClick} {text} />
+    <Button {onClick} {text} />
   </div>
 </nav>
 

@@ -6,9 +6,9 @@
   import { auth, db } from "../../client";
   import { addDoc, collection } from "firebase/firestore";
 
-  let location = "";
-  let date = "";
-  let amount = 0;
+  let location = $state("");
+  let date = $state("");
+  let amount = $state(0);
 
   const handleSubmit = async () => {
     try {
@@ -30,7 +30,7 @@
     <TextField label="Hvor kjøpt" bind:value={location} type="text" />
     <TextField label="Beløp" bind:value={amount} type="number" />
     <DatePicker bind:date />
-    <Button text="Submit" on:click={handleSubmit} />
+    <Button text="Submit" onClick={handleSubmit} />
   </div>
 {/if}
 

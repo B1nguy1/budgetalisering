@@ -1,8 +1,13 @@
 <script lang="ts">
-  export let text: string;
+  interface Props {
+    text: string;
+    onClick: () => void;
+  }
+
+  let { text, onClick }: Props = $props();
 </script>
 
-<button on:click>
+<button onclick={onClick}>
   {text}
 </button>
 

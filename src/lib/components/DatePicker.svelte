@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let date: string;
+  interface Props {
+    date: string;
+  }
+
+  let { date = $bindable() }: Props = $props();
 </script>
 
 <div>

@@ -1,7 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  export let status: string;
+  interface Props {
+    status: string;
+  }
+
+  let { status }: Props = $props();
 
   onMount(() => {
     if (status === "404") {
