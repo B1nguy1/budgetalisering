@@ -6,13 +6,13 @@
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
   interface Props {
-    children?: import('svelte').Snippet;
+    children?: import("svelte").Snippet;
   }
 
   let { children }: Props = $props();
 
   onMount(() => {
-    $isLoggedIn = !!JSON.parse(sessionStorage.getItem("userID")!);
+    $isLoggedIn = JSON.parse(sessionStorage.getItem("userID")!);
   });
 
   const navigateToStartPage = () => {

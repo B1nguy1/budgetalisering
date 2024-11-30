@@ -1,23 +1,18 @@
 <script lang="ts">
-  interface Props {
-    date: string;
-    amount: number;
-    location: string;
-  }
+  import type { TransactionType } from "../../types";
 
-  let { date, amount, location }: Props = $props();
+  let { date, amount, location }: TransactionType = $props();
 </script>
 
 <div class="card">
   <div class="header">{date}</div>
+  <div class="detail"></div>
   <div class="detail">
-  </div>
-  <div class="detail">
-    <span>Amount:</span>
+    <span>Belop:</span>
     {amount.toFixed(2)} kr
   </div>
   <div class="detail">
-    <span>Location:</span>
+    <span>Butikk:</span>
     {location}
   </div>
 </div>

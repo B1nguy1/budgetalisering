@@ -40,7 +40,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     max-width: fit-content;
-    margin-inline: auto;
+    margin: auto;
     gap: 24px;
   }
 </style>
