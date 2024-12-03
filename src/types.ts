@@ -4,6 +4,11 @@ type TransactionType = {
     date: string;
 }
 
-export type {
-    TransactionType
-}
+type SavingsType = {
+    monthlyAmount: number;
+    saveAmount: number;
+    userID: string;
+  }
+
+
+export type { TransactionType, SavingsType }
