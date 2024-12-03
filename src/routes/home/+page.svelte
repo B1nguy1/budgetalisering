@@ -63,12 +63,7 @@
   });
 
   const handleSubmit = async () => {
-    if (
-      monthlyAmount === null ||
-      saveAmount === null ||
-      monthlyAmount <= 0 ||
-      saveAmount <= 0
-    ) {
+    if (monthlyAmount <= 0 || saveAmount <= 0) {
       alert("Beløpene må være større enn 0.");
       return;
     }
