@@ -1,0 +1,39 @@
+{
+    "expenses": [
+      {
+        "id": 1,
+        "category": "Mat og drikke",
+        "amount": 21,
+        "date": "2025-04-01",
+        "note": "Hvit monster"
+      },
+      {
+        "id": 2,
+        "category": "Reise",
+        "amount": 900,
+        "date": "2025-04-03",
+        "note": "Flybillett Helsinki"
+      },
+      {
+        "id": 3,
+        "category": "Klær og sko",
+        "amount": 1699,
+        "date": "2025-04-04",
+        "note": "Lopesko"
+      },
+      {
+        "id": 4,
+        "category": "Diverse",
+        "amount": 1800,
+        "date": "2025-04-02",
+        "note": "Electricity bill"
+      },
+      {
+        "id": 5,
+        "category": "Mat og drikke",
+        "amount": 500,
+        "date": "2025-04-05",
+        "note": "Lunch with friends"
+      }
+    ]
+  }
