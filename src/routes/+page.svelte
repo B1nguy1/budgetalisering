@@ -1,9 +1,9 @@
 <script>
   import { goto } from "$app/navigation";
+  import ExpenseForm from "$lib/components/ExpenseForm.svelte";
 </script>
 
 <div>
   <h1>Budgetalisering</h1>
-  <!--Bare test foreløpig.-->
-  <button onclick={() => goto("/expenses")}>Klikk for å gå videre</button>
+  <ExpenseForm />
 </div>

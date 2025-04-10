@@ -1,8 +1,13 @@
-<script>
-  import { Budget } from "$lib/budget.svelte.js";
+<script lang="ts">
+  import type { Expense } from "$lib/types.ts";
+
   import ExpenseItem from "./ExpenseItem.svelte";
 
-  const expenses = new Budget().getExpenses();
+  interface Props {
+    expenses: Expense[];
+  }
+
+  let { expenses }: Props = $props();
 </script>
 
 <div class="expense-list">

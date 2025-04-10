@@ -1,11 +1,13 @@
 <script>
   import ExpenseList from "$lib/components/ExpenseList.svelte";
+
+  let { data } = $props();
 </script>
 
-<main class="container">
+<div class="container">
   <h1 class="header">Oversikt over forbruk</h1>
-  <ExpenseList />
-</main>
+  <ExpenseList expenses={data.expenses} />
+</div>
 
 <style>
   .container {
