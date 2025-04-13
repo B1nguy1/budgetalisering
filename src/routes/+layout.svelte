@@ -4,23 +4,39 @@
   let { children } = $props();
 </script>
 
-<div class="header">
-  <div>
-    <span>BUDGETTALISERING</span>
-  </div>
-  {#if page.url.pathname !== "/"}
+{#if page.url.pathname !== "/"}
+  <div class="header">
+    <div>
+      <span>BUDGETTALISERING</span>
+    </div>
     <nav class="nav-container">
       <a href="/expenses">Utgifter</a>
-      <a href="/settings">TEMP</a>
+      <a href="/home">Hjem</a>
     </nav>
-  {/if}
-</div>
+  </div>
+{/if}
 
 <main>
   {@render children()}
 </main>
 
 <style>
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+  span {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  nav a {
+    text-decoration: none;
+    margin-left: 24px;
+    color: black;
+    font-weight: 500;
+  }
   :global(body) {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fef9f2;
