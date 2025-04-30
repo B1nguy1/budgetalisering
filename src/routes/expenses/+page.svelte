@@ -6,7 +6,7 @@
 
   let selectedCategory: string | null = $state(null);
 
-  const filterCategory = (category: string) => {
+  const filterCategory = (category: string | null) => {
     selectedCategory = selectedCategory === category ? null : category;
   };
 
@@ -24,10 +24,11 @@
 <div class="container">
   <h1 class="header">Oversikt over forbruk</h1>
   <div>
+    <button onclick={() => filterCategory(null)}>Velg alle</button>
     {#each categories as category}
       <label>
         <input
-          type="checkbox"
+          type="radio"
           checked={selectedCategory === category}
           onchange={() => filterCategory(category)}
         />
@@ -36,9 +37,11 @@
     {/each}
   </div>
   <ExpenseList expenses={filterExpenses} />
-  <span>
-    Total: {totalExpenses}
-  </span>
+  {#if totalExpenses > 0}
+    <span>
+      Total: {totalExpenses}
+    </span>
+  {/if}
 </div>
 
 <style>
