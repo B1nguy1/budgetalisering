@@ -12,16 +12,20 @@
 
 <div class="expense-list">
   <ul>
-    {#each expenses as expense}
-      <li class="expense-item">
-        <ExpenseItem
-          category={expense.category}
-          amount={expense.amount}
-          note={expense.note}
-          date={expense.date}
-        />
-      </li>
-    {/each}
+    {#if expenses.length > 0}
+      {#each expenses as expense}
+        <li class="expense-item">
+          <ExpenseItem
+            category={expense.category}
+            amount={expense.amount}
+            note={expense.note}
+            date={expense.date}
+          />
+        </li>
+      {/each}
+    {:else}
+      <span>Det finnes ingen forbruksdata.</span>
+    {/if}
   </ul>
 </div>
 
