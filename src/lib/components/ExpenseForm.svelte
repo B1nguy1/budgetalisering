@@ -7,20 +7,34 @@
   let amount = $state<number>();
   let category = $state("");
   let date = $state("");
+  let isAdded = $state(false);
 
   async function submitForm() {
-    await supabase.from("expenses").insert([
-      {
-        note: note,
-        category: category,
-        amount: amount,
-        date: date,
-      },
-    ]);
+    try {
+      await supabase.from("expenses").insert([
+        {
+          note: note,
+          category: category,
+          amount: amount,
+          date: date,
+        },
+      ]);
+      isAdded = true;
+      setTimeout(() => {
+        isAdded = false;
+      }, 3000);
+    } catch (error) {
+      console.error(error);
+    }
   }
 </script>
 
 <form onsubmit={submitForm} use:enhance>
+  {#if isAdded}
+    <div class="alert alert-success">
+      <span>Utgift lagt til!</span>
+    </div>
+  {/if}
   <label for="category"> Kategori </label>
   <select
     id="category"
@@ -83,5 +97,21 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+  }
+  button:hover {
+    background-color: #3d96ff;
+  }
+  .alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+  .alert-success {
+    background-color: #e6f7ef;
+    color: #0d8050;
+    border: 1px solid #c2ebd6;
   }
 </style>

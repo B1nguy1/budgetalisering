@@ -10,8 +10,8 @@
       <span>BUDGETTALISERING</span>
     </div>
     <nav class="nav-container">
-      <a href="/expenses">Utgifter</a>
       <a href="/home">Hjem</a>
+      <a href="/expenses">Utgifter</a>
     </nav>
   </div>
 {/if}
