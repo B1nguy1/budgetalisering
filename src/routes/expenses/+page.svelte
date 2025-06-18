@@ -3,7 +3,6 @@
   import { categories } from "$lib/utils/categories.js";
 
   let { data } = $props();
-
   let selectedCategory: string | null = $state(null);
 
   const filterCategory = (category: string | null) => {
@@ -13,29 +12,39 @@
   const filterExpenses = $derived(
     selectedCategory
       ? data.expenses.filter((expense) => expense.category === selectedCategory)
-      : data.expenses
+      : data.expenses,
   );
 
   const totalExpenses = $derived(
-    filterExpenses.reduce((sum, expense) => sum + expense.amount, 0)
+    filterExpenses.reduce((sum, expense) => sum + expense.amount, 0),
   );
 </script>
 
 <div class="container">
   <h1 class="header">Oversikt over forbruk</h1>
-  <div>
-    <button onclick={() => filterCategory(null)}>Velg alle</button>
-    {#each categories as category}
-      <label>
-        <input
-          type="radio"
-          checked={selectedCategory === category}
-          onchange={() => filterCategory(category)}
-        />
-        {category}
-      </label>
-    {/each}
-  </div>
+  <fieldset style="border: none; margin: 0 0 1rem 0; padding: 0;">
+    <legend style="font-weight: bold; margin-bottom: 0.5rem;">Kategorier</legend
+    >
+    <button
+      type="button"
+      style="margin-right: 1rem; padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer;"
+      onclick={() => filterCategory(null)}
+    >
+      Velg alle
+    </button>
+    <span style="display: inline-flex; gap: 1rem; align-items: center;">
+      {#each categories as category}
+        <label style="display: inline-flex; align-items: center; gap: 0.3rem;">
+          <input
+            type="radio"
+            checked={selectedCategory === category}
+            onchange={() => filterCategory(category)}
+          />
+          {category}
+        </label>
+      {/each}
+    </span>
+  </fieldset>
   <ExpenseList expenses={filterExpenses} />
   {#if totalExpenses > 0}
     <span>
