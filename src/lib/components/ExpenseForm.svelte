@@ -9,7 +9,7 @@
   let date = $state("");
   let isAdded = $state(false);
 
-  async function submitForm() {
+  const submitForm = async () => {
     try {
       await supabase.from("expenses").insert([
         {
@@ -26,7 +26,7 @@
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 </script>
 
 <form onsubmit={submitForm} use:enhance>

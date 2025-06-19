@@ -22,19 +22,18 @@
 
 <div class="container">
   <h1 class="header">Oversikt over forbruk</h1>
-  <fieldset style="border: none; margin: 0 0 1rem 0; padding: 0;">
-    <legend style="font-weight: bold; margin-bottom: 0.5rem;">Kategorier</legend
-    >
+  <fieldset>
+    <legend>Kategorier</legend>
     <button
       type="button"
-      style="margin-right: 1rem; padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer;"
+      class="selectAllButton"
       onclick={() => filterCategory(null)}
     >
       Velg alle
     </button>
-    <span style="display: inline-flex; gap: 1rem; align-items: center;">
+    <span class="categoryText">
       {#each categories as category}
-        <label style="display: inline-flex; align-items: center; gap: 0.3rem;">
+        <label>
           <input
             type="radio"
             checked={selectedCategory === category}
@@ -64,5 +63,32 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
+  }
+  fieldset {
+    border: none;
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+  legend {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .selectAllButton {
+    margin-right: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+  }
+  .categoryText {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
   }
 </style>
