@@ -5,11 +5,9 @@
 
   interface Props {
     expenses: Expense[];
-    onEdit: (expense: Expense) => void;
-    onDelete: (expense: Expense) => void;
   }
 
-  let { expenses, onEdit, onDelete }: Props = $props();
+  let { expenses }: Props = $props();
 </script>
 
 <div class="expense-list">
@@ -24,10 +22,6 @@
             date={expense.date}
           />
         </li>
-        <div class="actions">
-          <button onclick={() => onEdit(expense)}>Rediger</button>
-          <button onclick={() => onDelete(expense)}>Fjern</button>
-        </div>
       {/each}
     {:else}
       <span>Det finnes ingen forbruksdata.</span>
@@ -45,9 +39,5 @@
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-  }
-  .actions {
-    display: flex;
-    gap: 0.5rem;
   }
 </style>
